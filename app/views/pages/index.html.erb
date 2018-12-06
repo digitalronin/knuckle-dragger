@@ -1,1 +1,23 @@
-<h1>Knuckle Dragger</h1>
+<%= stylesheet_link_tag "cover" %>
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+  <header class="masthead mb-auto">
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">View Project Issues</h1>
+    <p class="lead">
+      <%= form_for Project.new do |f| %>
+        <div class="form-group">
+          <%= f.text_field :url, class: 'form-control', placeholder: 'https://github.com/someone/repo'  %>
+          <small id="emailHelp" class="form-text text-muted">Please enter the URL of a github repository/project</small>
+        </div>
+
+        <%= f.submit 'View Issues', class: 'btn btn-primary' %>
+      <% end %>
+    </p>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+  </footer>
+</div>
