@@ -1,7 +1,16 @@
 <div class="container-fluid">
   <div class="row outlined">
-    <div class="col outlined">
-      Issues
+    <div class="col outlined unassigned-issues">
+
+      <% 16.times do %>
+        <div class="card unassigned-issue">
+          <div class="card-body">
+            <h5 class="card-title"><%= Faker::Hacker.say_something_smart %></h5>
+            <p class="card-text"><%= Faker::TheITCrowd.quote %></p>
+          </div>
+        </div>
+      <% end %>
+
     </div>
     <div class="col-3 outlined collaborators">
       <%= render "collaborators" %>

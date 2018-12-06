@@ -26,3 +26,19 @@
   margin-right: auto;
   margin-top: 10px;
 }
+
+.unassigned-issues {
+  height: 900px;
+  overflow-y: auto;
+  padding-left: 50px;
+  padding-top: 30px;
+}
+
+.unassigned-issue {
+  margin: 10px;
+  width: 300px;
+  float: left;
+  height: 200px;
+  overflow-y: auto;
+}
+
