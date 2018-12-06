@@ -51,7 +51,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
-  gem 'faker'
 end
 
 group :test do
@@ -67,3 +66,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.1.3'
+
+# TODO: move this to development group, or remove it.
+# For now, we need it here because the app is in production
+# mode on Heroku.
+gem 'faker'
