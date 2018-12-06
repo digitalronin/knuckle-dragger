@@ -2,6 +2,10 @@
   border: 1px solid black;
 }
 
+.collaborator-container {
+  border-bottom: 1px solid black;
+}
+
 .collaborator {
   height: 200px;
   margin-left: auto;
@@ -10,6 +14,7 @@
 }
 
 .collaborators {
+  border-left: 1px solid black;
   padding-bottom: 15px;
   height: 900px;
   overflow-y: auto;
