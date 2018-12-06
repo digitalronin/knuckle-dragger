@@ -4,41 +4,7 @@
       Issues
     </div>
     <div class="col-3 outlined collaborators">
-
-      <% (1..4).each do |seed| %>
-
-        <div class="row outlined">
-
-          <div class="col-4 assigned-issues outlined">
-
-            <% (1..(rand * 4).to_i).each do |issue| %>
-              <div class="card assigned-issue">
-                <div class="card-body">
-                  <%
-                    truncate_after = 40
-                    str = Faker::Hacker.say_something_smart
-                    str = str.length < truncate_after ? str : str[0,truncate_after] + " …"
-                  %>
-                  <%= str %>
-                </div>
-              </div>
-            <% end %>
-
-          </div>
-
-          <div class="col outlined">
-            <div class="card collaborator">
-              <img class="card-img-top" src="https://placem.at/people?w=150&h=100&random=<%= seed %>" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><%= Faker::Name.name %></h5>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      <% end %>
-
+      <%= render "collaborators" %>
     </div>
   </div>
 </div>

@@ -1,0 +1,11 @@
+<% (1..4).each do |seed| %>
+  <div class="row outlined">
+    <div class="col-4 assigned-issues outlined">
+      <%= render "assigned_issues" %>
+    </div>
+
+    <div class="col outlined">
+      <%= render partial: "collaborator", locals: { seed: seed } %>
+    </div>
+  </div>
+<% end %>
