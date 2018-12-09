@@ -1,8 +1,4 @@
 <div class="row contributor-container">
-  <div class="col-4 assigned-issues">
-    <%= render "assigned_issues" %>
-  </div>
-
   <div class="col">
     <div class="card contributor">
       <img class="card-img-top" src="<%= contributor.avatar_url %>" alt="<%= contributor.login %>">
@@ -10,5 +6,9 @@
         <h5 class="card-title"><%= contributor.login %></h5>
       </div>
     </div>
+  </div>
+
+  <div class="col-7 assigned-issues">
+    <%= render "assigned_issues" %>
   </div>
 </div>
