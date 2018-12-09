@@ -9,9 +9,15 @@
 
 .collaborator {
   height: 200px;
+  width: 160px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
+
+  img.card-img-top {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .collaborators {
