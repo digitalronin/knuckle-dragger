@@ -2,11 +2,11 @@
   <div class="row">
 
     <div class="col unassigned-issues">
-      <%= render partial: 'issue', collection: @issues %>
+      <%= render partial: 'issue', collection: @repo.unassigned_issues %>
     </div>
 
     <div class="col-3 contributors">
-      <%= render partial: 'contributor', collection: @contributors %>
+      <%= render partial: 'contributor', collection: @repo.contributors %>
     </div>
   </div>
 </div>

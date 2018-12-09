@@ -20,11 +20,16 @@ class GithubRepo
   end
 
   def contributors
-    client.contributors(repo)
+    rtn = client.contributors(repo)
+    rtn.is_a?(Enumerable) ? rtn : []
   end
 
   def unassigned_issues
     issues.find_all {|i| i.assignees == []}
+  end
+
+  def issues_assigned_to(name)
+    issues.find_all {|i| i.assignees.include?(name)}
   end
 
   private
