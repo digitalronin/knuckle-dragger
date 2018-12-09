@@ -1,6 +1,8 @@
 <div class="card unassigned-issue">
   <div class="card-body">
-    <h5 class="card-title"><%= issue.title %></h5>
+    <h5 class="card-title">
+      <%= link_to issue.title, issue.html_url, target: :blank %>
+    </h5>
     <p class="card-text"><%= issue.body %></p>
   </div>
 </div>
