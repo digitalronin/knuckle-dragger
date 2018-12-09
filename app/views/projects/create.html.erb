@@ -1,17 +1,10 @@
 <div class="container-fluid">
   <div class="row">
+
     <div class="col unassigned-issues">
-
-      <% 24.times do %>
-        <div class="card unassigned-issue">
-          <div class="card-body">
-            <h5 class="card-title"><%= Faker::Hacker.say_something_smart %></h5>
-            <p class="card-text"><%= Faker::TheITCrowd.quote %></p>
-          </div>
-        </div>
-      <% end %>
-
+      <%= render partial: 'issue', collection: @issues %>
     </div>
+
     <div class="col-3 collaborators">
       <%= render "collaborators" %>
     </div>
