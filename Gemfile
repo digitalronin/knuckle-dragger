@@ -71,3 +71,5 @@ gem 'bootstrap', '~> 4.1.3'
 # For now, we need it here because the app is in production
 # mode on Heroku.
 gem 'faker'
+
+gem 'octokit'
