@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
   def create
     repo = project_params.fetch(:url).sub('https://github.com/', '').strip
-    @issues = GithubRepo.issues(repo, :unassigned)
+    redirect_to project_path(repo)
   end
 
-  def index
-    render :create
+  def show
+    repo = params.fetch(:id)
+    @issues = GithubRepo.issues(repo, :unassigned)
   end
 
   private
