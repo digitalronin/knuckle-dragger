@@ -11,7 +11,8 @@ class ProjectsController < ApplicationController
     repo = params.fetch(:id)
     gh = GithubRepo.new(repo)
     @issues = gh.issues(:unassigned)
-    @contributors = gh.contributors.take(MAX_CONTRIBUTORS)
+    list = gh.contributors
+    @contributors = list.is_a?(Enumerable) ? gh.contributors.take(MAX_CONTRIBUTORS) : []
   end
 
   private
