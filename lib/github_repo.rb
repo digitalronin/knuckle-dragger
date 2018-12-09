@@ -1,7 +1,7 @@
 require 'octokit'
 
 class GithubRepo
-  attr_reader :client, :repo, :issues
+  attr_reader :client, :repo, :issues, :contributors
 
   Issue = Struct.new(:number, :title, :body, :html_url, :state, :assignees, :labels, :updated_at)
 
@@ -17,11 +17,7 @@ class GithubRepo
     @client = Octokit::Client.new()
     @repo = repo
     @issues = fetch_issues
-  end
-
-  def contributors
-    rtn = client.contributors(repo)
-    rtn.is_a?(Enumerable) ? rtn : []
+    @contributors = fetch_contributors
   end
 
   def unassigned_issues
@@ -40,6 +36,11 @@ class GithubRepo
       direction: :desc
     }
     client.issues(repo, options.merge(state: :open)).map { |i| struct_from_api_issue(i) }
+  end
+
+  def fetch_contributors
+    rtn = client.contributors(repo)
+    rtn.is_a?(Enumerable) ? rtn : []
   end
 
   def struct_from_api_issue(i)

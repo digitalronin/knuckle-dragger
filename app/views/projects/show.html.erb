@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-3 contributors">
-      <%= render partial: 'contributor', collection: @repo.contributors %>
+      <%= render partial: 'contributor', collection: @repo.contributors, locals: { repo: @repo } %>
     </div>
   </div>
 </div>

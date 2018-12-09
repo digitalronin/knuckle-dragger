@@ -9,6 +9,6 @@
   </div>
 
   <div class="col-7 assigned-issues">
-    <%= render "assigned_issues" %>
+    <%= render partial: "assigned_issue", collection: repo.issues_assigned_to(contributor.login) %>
   </div>
 </div>
