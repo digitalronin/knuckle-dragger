@@ -1,5 +1,5 @@
 <div class="card assigned-issue">
   <div class="card-body">
-    <%= truncate(assigned_issue.title, length: 40) %>
+      <%= link_to truncate(assigned_issue.title, length: 40), assigned_issue.html_url, target: :blank %>
   </div>
 </div>
