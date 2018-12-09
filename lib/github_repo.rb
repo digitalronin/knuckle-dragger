@@ -18,10 +18,6 @@ class GithubRepo
     @repo = repo
   end
 
-  def self.issues(repo, issue_type)
-    new(repo).issues(issue_type)
-  end
-
   def issues(issue_type)
     options = {
       sort: :updated,

@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
 
   def show
     repo = params.fetch(:id)
-    @issues = GithubRepo.issues(repo, :unassigned)
+    gh = GithubRepo.new(repo)
+    @issues = gh.issues(:unassigned)
   end
 
   private
