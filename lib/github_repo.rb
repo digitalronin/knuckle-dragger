@@ -32,6 +32,10 @@ class GithubRepo
     end
   end
 
+  def contributors
+    client.contributors(repo)
+  end
+
   private
 
   def struct_from_api_issue(i)
