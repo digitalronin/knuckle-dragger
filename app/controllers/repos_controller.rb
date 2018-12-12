@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ReposController < ApplicationController
 
   def create
     repo = project_params.fetch(:url).sub('https://github.com/', '').strip

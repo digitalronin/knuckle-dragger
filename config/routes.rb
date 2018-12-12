@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :repos
   resources :assignments
 
   namespace :github do

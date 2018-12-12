@@ -1,12 +1,12 @@
 class AssignmentsController < ApplicationController
   def create
     github(repo_name).assign_issue(assignment_params)
-    redirect_to project_path(repo_name)
+    redirect_to repo_path(repo_name)
   end
 
   def destroy
     github(repo_name).unassign_issue(assignment_params)
-    redirect_to project_path(repo_name)
+    redirect_to repo_path(repo_name)
   end
 
   private
