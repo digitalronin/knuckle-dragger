@@ -3,9 +3,9 @@
   </header>
 
   <main role="main" class="inner cover">
-    <h1 class="cover-heading">View Project Issues</h1>
+    <h1 class="cover-heading">View Assignees</h1>
     <p class="lead">
-      <%= form_for Project.new do |f| %>
+      <%= form_for Repo.new do |f| %>
         <div class="form-group">
           <%= f.text_field :url, class: 'form-control', placeholder: 'https://github.com/someone/repo'  %>
           <small id="emailHelp" class="form-text text-muted">Please enter the URL of a github repository/project</small>

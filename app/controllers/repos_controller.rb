@@ -1,8 +1,8 @@
 class ReposController < ApplicationController
 
   def create
-    repo = project_params.fetch(:url).sub('https://github.com/', '').strip
-    redirect_to project_path(repo)
+    repo = repo_params.fetch(:url).sub('https://github.com/', '').strip
+    redirect_to repo_path(repo)
   end
 
   def show
@@ -12,7 +12,7 @@ class ReposController < ApplicationController
 
   private
 
-  def project_params
-    params.require(:project).permit(:url)
+  def repo_params
+    params.require(:repo).permit(:url)
   end
 end
