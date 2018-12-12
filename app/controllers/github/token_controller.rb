@@ -1,6 +1,6 @@
 class Github::TokenController < ApplicationController
   def req
-    if session[:github_oauth_state]
+    if session[:github_access_token]
       redirect_to '/'
     else
       state = random_string
@@ -15,8 +15,9 @@ class Github::TokenController < ApplicationController
     end
 
     code = params.fetch(:code)
-
     token = GithubOauth.get_token_from_code(code)
+    Rails.logger.debug "token: #{token}"
+
     session[:github_access_token] = token
     redirect_to '/'
   end

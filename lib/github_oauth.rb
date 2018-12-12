@@ -6,6 +6,7 @@ class GithubOauth
 
   # Exchange the github 'code' for an oauth token
   def self.get_token_from_code(code)
+    Rails.logger.debug 'get_token_from_code'
     uri = URI.parse(ACCESS_TOKEN_URL)
 
     response = Net::HTTP.post_form(uri, {

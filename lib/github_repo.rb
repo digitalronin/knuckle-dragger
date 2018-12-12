@@ -1,7 +1,7 @@
 require 'octokit'
 
 class GithubRepo
-  attr_reader :client, :repo, :issues, :contributors
+  attr_reader :repo, :issues, :contributors
 
   Issue = Struct.new(:number, :title, :body, :html_url, :state, :assignees, :labels, :updated_at)
 
@@ -33,13 +33,14 @@ class GithubRepo
   def fetch_issues
     options = {
       sort: :updated,
-      direction: :desc
+      direction: :desc,
+      state: :open
     }
-    client.issues(repo, options.merge(state: :open)).map { |i| struct_from_api_issue(i) }
+    @client.issues(repo, options).map { |i| struct_from_api_issue(i) }
   end
 
   def fetch_contributors
-    rtn = client.contributors(repo)
+    rtn = @client.contributors(repo)
     rtn.is_a?(Enumerable) ? rtn : []
   end
 

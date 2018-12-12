@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    Rails.logger.debug "Token: #{session[:github_access_token]}"
     @repo = GithubRepo.new(params.fetch(:id))
   end
 
