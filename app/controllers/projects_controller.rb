@@ -1,7 +1,5 @@
 class ProjectsController < ApplicationController
 
-  MAX_CONTRIBUTORS = 10
-
   def create
     repo = project_params.fetch(:url).sub('https://github.com/', '').strip
     redirect_to project_path(repo)
@@ -9,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     Rails.logger.debug "Token: #{session[:github_access_token]}"
-    @repo = GithubRepo.new(params.fetch(:id))
+    @repo = GithubRepo.new(params.fetch(:id), session[:github_access_token])
   end
 
   private

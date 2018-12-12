@@ -2,12 +2,12 @@
   border: 1px solid black;
 }
 
-.contributor-container {
+.collaborator-container {
   border-bottom: 1px solid black;
   z-index: 0;
 }
 
-.contributor {
+.collaborator {
   height: 200px;
   width: 160px;
   margin-left: auto;
@@ -20,7 +20,7 @@
   }
 }
 
-.contributors {
+.collaborators {
   border-left: 1px solid black;
   padding-bottom: 15px;
   height: 1000px;
