@@ -28,6 +28,12 @@ class GithubRepo
     issues.find_all {|i| i.assignees.include?(name)}
   end
 
+  def assign_issue(params)
+    assignees = [params.fetch(:collaborator)]
+    number = params.fetch(:issue)
+    @client.add_assignees(full_name, number, assignees)
+  end
+
   private
 
   def fetch_issues
