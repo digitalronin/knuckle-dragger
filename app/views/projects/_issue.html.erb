@@ -4,5 +4,12 @@
       <%= link_to issue.title, issue.html_url, target: :blank %>
     </h5>
     <p class="card-text"><%= issue.body %></p>
+
+    <div class="card-footer">
+      <% repo.collaborators.each do |collaborator| %>
+        <%= link_to collaborator.login, assignments_path(assignment: {repo: repo.full_name, issue: issue.number, collaborator: collaborator.login}), method: :post %>
+      <% end %>
+    </div>
+
   </div>
 </div>
