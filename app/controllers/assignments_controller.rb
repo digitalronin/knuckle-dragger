@@ -1,16 +1,23 @@
 class AssignmentsController < ApplicationController
   def create
-    repo_name = assignment_params.fetch(:repo)
-    github = GithubRepo.new(repo_name, session[:github_access_token])
-    github.assign_issue(assignment_params)
+    github(repo_name).assign_issue(assignment_params)
     redirect_to project_path(repo_name)
   end
 
   def destroy
-    Rails.logger.debug params.inspect
+    github(repo_name).unassign_issue(assignment_params)
+    redirect_to project_path(repo_name)
   end
 
   private
+
+  def repo_name
+    assignment_params.fetch(:repo)
+  end
+
+  def github(repo_name)
+    GithubRepo.new(repo_name, session[:github_access_token])
+  end
 
   def assignment_params
     params.require(:assignment).permit(:repo, :issue, :collaborator)

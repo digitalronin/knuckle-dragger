@@ -29,9 +29,11 @@ class GithubRepo
   end
 
   def assign_issue(params)
-    assignees = [params.fetch(:collaborator)]
-    number = params.fetch(:issue)
-    @client.add_assignees(full_name, number, assignees)
+    @client.add_assignees(full_name, params.fetch(:issue), [params.fetch(:collaborator)])
+  end
+
+  def unassign_issue(params)
+    @client.remove_assignees(full_name, params.fetch(:issue), [params.fetch(:collaborator)])
   end
 
   private

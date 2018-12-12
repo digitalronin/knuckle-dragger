@@ -13,6 +13,6 @@
   </div>
 
   <div class="col-7 assigned-issues">
-    <%= render partial: "assigned_issue", collection: repo.issues_assigned_to(collaborator.login) %>
+    <%= render partial: "assigned_issue", collection: repo.issues_assigned_to(collaborator.login), locals: { repo: repo, collaborator: collaborator } %>
   </div>
 </div>
