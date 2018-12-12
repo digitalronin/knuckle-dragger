@@ -1,7 +1,7 @@
 require 'octokit'
 
 class GithubRepo
-  attr_reader :repo, :issues, :collaborators
+  attr_reader :full_name, :issues, :collaborators
 
   Issue = Struct.new(:number, :title, :body, :html_url, :state, :assignees, :labels, :updated_at)
 
@@ -9,13 +9,13 @@ class GithubRepo
   IN_PROGRESS = 'in progress'
   DONE = 'done'
 
-  def initialize(repo, access_token)
+  def initialize(full_name, access_token)
     Octokit.configure do |c|
       # c.auto_paginate = true
       c.per_page = 100 # Maximum is 100 (I think)
     end
     @client = Octokit::Client.new(access_token: access_token)
-    @repo = repo
+    @full_name = full_name
     @issues = fetch_issues
     @collaborators = fetch_collaborators
   end
@@ -36,11 +36,11 @@ class GithubRepo
       direction: :desc,
       state: :open
     }
-    @client.issues(repo, options).map { |i| struct_from_api_issue(i) }
+    @client.issues(full_name, options).map { |i| struct_from_api_issue(i) }
   end
 
   def fetch_collaborators
-    rtn = @client.collaborators(repo)
+    rtn = @client.collaborators(full_name)
     rtn.is_a?(Enumerable) ? rtn : []
   end
 
