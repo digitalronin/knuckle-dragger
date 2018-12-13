@@ -1,8 +1,8 @@
 class ReposController < ApplicationController
 
   def create
-    repo = repo_params.fetch(:url).sub('https://github.com/', '').strip
-    redirect_to repo_path(repo)
+    full_name = repo_params.fetch(:url).sub('https://github.com/', '').strip
+    redirect_to repo_path(full_name)
   end
 
   def show
