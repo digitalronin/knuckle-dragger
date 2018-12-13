@@ -3,6 +3,6 @@
       <%= link_to truncate(assigned_issue.title, length: 40), assigned_issue.html_url, target: :blank %>
   </div>
   <div class="card-footer">
-    <%= link_to 'X', assignment_path(assignment: {repo: repo.full_name, issue: assigned_issue.number, collaborator: collaborator.login}), method: :delete %>
+    <%= link_to 'X', repo_assignment_path(repo.full_name, assigned_issue.number, assignment: {issue: assigned_issue.number, collaborator: collaborator.login}), method: :delete %>
   </div>
 </div>

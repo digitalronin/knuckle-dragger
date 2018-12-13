@@ -7,7 +7,7 @@
 
     <div class="card-footer">
       <% repo.collaborators.each do |collaborator| %>
-        <%= link_to collaborator.login, assignments_path(assignment: {repo: repo.full_name, issue: issue.number, collaborator: collaborator.login}), method: :post %>
+        <%= link_to collaborator.login, repo_assignments_path(repo.full_name, assignment: {issue: issue.number, collaborator: collaborator.login}), method: :post %>
       <% end %>
     </div>
 

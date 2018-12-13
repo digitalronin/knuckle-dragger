@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :repos
-
-  resources :assignments
+  resources :repos do
+    resources :assignments
+  end
 
   namespace :github do
     get 'token/req', to: 'token#req'

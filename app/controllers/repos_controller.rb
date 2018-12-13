@@ -4,7 +4,7 @@ class ReposController < ApplicationController
     full_name = repo_params.fetch(:url).sub('https://github.com/', '').strip
 
     if session[:github_access_token]
-      redirect_to repo_path(full_name)
+      redirect_to repo_assignments_path(full_name)
     else
       # we need the user to connect their github account
       # so stash the repo_full_name so we can redirect
@@ -12,11 +12,6 @@ class ReposController < ApplicationController
       session[:repo_full_name] = full_name
       redirect_to github_token_req_path
     end
-  end
-
-  def show
-    Rails.logger.debug "Token: #{session[:github_access_token]}"
-    @repo = GithubRepo.new(params.fetch(:id), session[:github_access_token])
   end
 
   private

@@ -1,7 +1,7 @@
 class Github::TokenController < ApplicationController
   def req
     if session[:github_access_token]
-      redirect_to repo_path(session[:repo_full_name])
+      redirect_to repo_assignments_path(session[:repo_full_name])
     else
       state = random_string
       session[:github_oauth_state] = state
@@ -19,7 +19,7 @@ class Github::TokenController < ApplicationController
     Rails.logger.debug "token: #{token}"
 
     session[:github_access_token] = token
-    redirect_to repo_path(session[:repo_full_name])
+    redirect_to repo_assignments_path(session[:repo_full_name])
   end
 
   private
