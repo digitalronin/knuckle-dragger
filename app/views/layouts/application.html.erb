@@ -21,9 +21,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <% unless session[:github_access_token] %>
-            <%= link_to 'Connect GitHub', github_token_req_path, class: 'nav-item nav-link' %>
-          <% end %>
+          <%= link_to 'Home', '/', class: 'nav-item nav-link' %>
         </div>
       </div>
     </nav>
